@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: db-deploayment
+  namespace: {{ .Values.namespace }}
+  labels:
+    id: "19108294"
+    app: maria
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: maria
+  template:
+    metadata:
+      labels:
+        id: "19108294"
+        app: maria
+        env: dev
+        version: "1.0.0"
+    spec:
+      containers:
+      - name: maria
+        image: {{ .Values.image.repo }}:{{ .Values.image.tag }}
+        envFrom:
+          - configMapRef:
+              name: maria-configmap
+          - secretRef:
+              name: maria-secret
+        ports:
+        - containerPort: {{ .Values.service.port }}

@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: wp-configmap
+  namespace: {{ .Values.namespace }}
+  labels:
+    id: "19108294"
+    app: word
+    env: dev
+data:
+  WORDPRESS_DB_HOST: {{ .Values.WORDPRESS_DB_HOST }}
+  WORDPRESS_DB_USER: {{ .Values.WORDPRESS_DB_USER }}
+  WORDPRESS_DB_NAME: {{ .Values.WORDPRESS_DB_NAME }}

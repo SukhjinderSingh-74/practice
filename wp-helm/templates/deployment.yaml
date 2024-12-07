@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wp-deploayment
+  namespace: {{ .Values.namespace }}
+  labels:
+    id: "19108294"
+    app: word
+spec:
+  replicas: {{ .Values.replicas }}
+  selector:
+    matchLabels:
+      app: word
+  template:
+    metadata:
+      labels:
+        id: "19108294"
+        app: word
+        env: dev
+        version: "1.0.0"
+    spec:
+      containers:
+      - name: word
+        image: wordpress:latest
+        envFrom:
+          - configMapRef:
+              name: wp-configmap
+          - secretRef:
+              name: wp-secret
+        ports:
+        - containerPort: 80

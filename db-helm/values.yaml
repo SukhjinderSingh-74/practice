@@ -1,0 +1,16 @@
+namespace: db
+secret:
+  MYSQL_ROOT_PASSWORD: d29yZHByZXNz
+  MYSQL_PASSWORD: d29yZHByZXNz
+configmap:
+  MYSQL_DATABASE: wordpress
+  MYSQL_USER: wordpress
+  
+service:
+  port: 3306
+  type: ClusterIP
+  
+replicas: 2
+image:
+  repo: mariadb
+  tag: 10.6.4-focal
