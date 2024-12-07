@@ -3,7 +3,7 @@ WORDPRESS_DB_HOST: "maria.db.svc.cluster.local"
 WORDPRESS_DB_USER: "wordpress"
 WORDPRESS_DB_NAME: "wordpress"
 
-replicas: 3
+replicas: 5
 WORDPRESS_DB_PASSWORD: d29yZHByZXNz  # 'wordpress' in base64
 service:
   type: ClusterIP
