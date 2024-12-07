@@ -1,0 +1,26 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-proxy
+  namespace: {{ .Values.deployment.namespace }}
+  labels:
+    id: "19108294"
+    app: nginx-proxy
+    env: dev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      id: "19108294"
+      app: nginx-proxy
+  template:
+    metadata:
+      labels:
+        id: "19108294"
+        app: nginx-proxy
+    spec:
+      containers:
+      - name: nginx-proxy
+        image: {{ .Values.deployment.image }}/{{ .Values.deployment.tag }}
+        ports:
+        - containerPort: 80

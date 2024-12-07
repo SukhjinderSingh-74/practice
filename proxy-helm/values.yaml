@@ -1,0 +1,8 @@
+deployment:
+  namespace: proxy
+  image: sukhishergill
+  tag: inclass2:v3
+  
+service:
+  type: LoadBalancer
+  namespace: proxy

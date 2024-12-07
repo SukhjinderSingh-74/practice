@@ -5,3 +5,5 @@ WORDPRESS_DB_NAME: "wordpress"
 
 replicas: 3
 WORDPRESS_DB_PASSWORD: d29yZHByZXNz  # 'wordpress' in base64
+service:
+  type: ClusterIP
